@@ -1,0 +1,10 @@
+<div class="container">
+  <div class="row">
+    <div class="col-6">
+      <app-list-component (VarPersClick)="VarEnvoi($event)" [Personnes]="personnes"></app-list-component>
+    </div>
+    <div class="col-6">
+      <app-carte-visite [VarPersFinal]="Varpers"></app-carte-visite>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Rotating CSS Cards by Creative Tim </title>
+
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+
+    <link href="https://netdna.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+
+    <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
+
+</head>
+<body>
+<div class="container">
+    <div class="row">
+
+        <div class="col-md-12 VisitCard">
+             <div class="card-container">
+                <div class="card">
+                    <div class="front">
+                        <div class="cover">
+                            <img src="assets/images/rotating_card_thumb2.png"/>
+                        </div>
+                        <div class="user">
+                            <img class="img-circle" src="assets/images/{{VarPersFinal.path|defaultImage}}"/>
+                        </div>
+                        <div class="content">
+                            <div class="main">
+                                <h3 class="name"> {{VarPersFinal.name}} {{VarPersFinal.firstname}}</h3>
+                                <p class="profession">{{VarPersFinal.job}}</p>
+                                <p class="text-center">"{{VarPersFinal.age}}"</p>
+                            </div>
+                            <div class="footer">
+                                <i class="fa fa-mail-forward"></i> Auto Rotation
+                            </div>
+                        </div>
+                    </div> <!-- end front panel -->
+                    <div class="back">
+                        <div class="header">
+                            <h5 class="motto"></h5>
+                        </div>
+                        <div class="content">
+                            <div class="main">
+                                <h4 class="text-center">{{VarPersFinal.cin}}</h4>
+                                <p class="text-center"></p>
+
+
+                            </div>
+                        </div>
+                        <div class="footer">
+                            <div class="social-links text-center">
+                                <a href="https://www.facebook.com" class="facebook"><i class="fa fa-facebook fa-fw"></i></a>
+                                <a href="https://www.google.com" class="google"><i class="fa fa-google-plus fa-fw"></i></a>
+                                <a href="https://www.twitter.com" class="twitter"><i class="fa fa-twitter fa-fw"></i></a>
+                            </div>
+                        </div>
+                    </div> <!-- end back panel -->
+                </div> <!-- end card -->
+            </div> <!-- end card-container -->
+
+        </div> <!-- end col-sm-10 -->
+    </div> <!-- end row -->
+</div>
+
+<script type="text/javascript">
+    $().ready(function(){
+        $('[rel="tooltip"]').tooltip();
+
+        $('a.scroll-down').click(function(e){
+            e.preventDefault();
+            scroll_target = $(this).data('href');
+             $('html, body').animate({
+                 scrollTop: $(scroll_target).offset().top - 60
+             }, 1000);
+        });
+
+    });
+
+    function rotateCard(btn){
+        var $card = $(btn).closest('.card-container');
+        console.log($card);
+        if($card.hasClass('hover')){
+            $card.removeClass('hover');
+        } else {
+            $card.addClass('hover');
+        }
+    }
+
+
+</script>
+
+</body>
+</html>
